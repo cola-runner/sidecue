@@ -1,0 +1,35 @@
+[documents]
+paths = ["./knowledge"]
+
+[retrieval]
+chunk_chars = 700
+overlap_chars = 120
+top_k = 3
+
+[asr]
+mode = "stdin" # stdin | mic
+language = "en-US"
+on_device = true # Apple system speech recognition; no separate model server
+
+[llm]
+provider = "codex" # codex | apple_fm | mock
+model = "gpt-5.3-codex-spark"
+reasoning_effort = "low"
+timeout_seconds = 30.0
+codex_command = "codex"
+system_prompt = """
+Generate short speaking cues from the current input and retrieved sources.
+Return cues, not scripted answers or meeting minutes. Write in English.
+1) Return one to three concise cues focused on facts, numbers, and constraints.
+2) Keep each cue under twelve words, followed by one brief line of evidence.
+3) If the sources are insufficient, say so and suggest a clarifying question.
+4) Cite source numbers such as [1] or [2] where available. Do not invent facts.
+"""
+
+[ui]
+title = "Sidecue"
+always_on_top = true
+width = 440
+height = 340
+x = 36
+y = 48

@@ -1,0 +1,18 @@
+Fictional sample notes. No real meeting content.
+
+Topic: Product requirements review
+
+Goals:
+1. Agree on the MVP scope.
+2. Confirm the launch timeline and owners.
+3. Identify risks and dependencies.
+
+Known constraints:
+- The development window is three weeks.
+- Design is available for two days this week.
+- Test and production environments have different settings.
+
+Discussion points:
+- Preserve the core workflow when priorities conflict.
+- Tie delivery commitments to milestones and acceptance criteria.
+- Record requirement changes instead of relying on verbal agreements.

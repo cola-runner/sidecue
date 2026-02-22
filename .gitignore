@@ -1,0 +1,33 @@
+.venv/
+build/
+__pycache__/
+*.pyc
+.DS_Store
+
+# Local credentials and machine-specific settings.
+.env
+.env.*
+!.env.example
+config.local.toml
+*.local.toml
+.codex/
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Private meeting inputs and runtime output are not source assets.
+/knowledge/**
+!/knowledge/sample_notes.txt
+/local/
+/.private/
+logs/
+*.log
+recordings/
+transcripts/
+screenshots/
+dist/
+*.app/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
