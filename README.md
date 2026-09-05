@@ -4,7 +4,9 @@ Quiet cues for live conversations.
 
 A small native macOS window that turns your current input and local reference notes into short speaking cues: facts, numbers, constraints, and points worth mentioning. It helps you find your next point, not generate a scripted answer or send messages on your behalf.
 
-<img src="docs/images/sidecue-preview.png" alt="Sidecue's native macOS window displaying three short sample speaking cues" width="440">
+![Sidecue's native macOS window displaying three short sample speaking cues](docs/images/sidecue-preview.png)
+
+[View the full-size UI screenshot](docs/images/sidecue-preview.png)
 
 *UI preview with fictional content. This is not a real microphone or model result.*
 

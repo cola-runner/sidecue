@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-from html.parser import HTMLParser
 from pathlib import Path
 import re
 import struct
@@ -13,16 +12,6 @@ from scripts.build_macos_app import APP_IDENTIFIER, APP_NAME
 
 
 ROOT = Path(__file__).resolve().parents[1]
-
-
-class _Images(HTMLParser):
-    def __init__(self):
-        super().__init__()
-        self.paths = []
-
-    def handle_starttag(self, tag, attrs):
-        if tag == "img":
-            self.paths.append(dict(attrs)["src"])
 
 
 class PublicationTests(unittest.TestCase):
@@ -54,9 +43,16 @@ class PublicationTests(unittest.TestCase):
         self.assertIn("Write in English", config.llm.system_prompt)
 
     def test_readme_includes_a_local_preview_image(self):
-        parser = _Images()
-        parser.feed((ROOT / "README.md").read_text())
-        self.assertIn("docs/images/sidecue-preview.png", parser.paths)
+        readme = (ROOT / "README.md").read_text()
+        self.assertIn(
+            "![Sidecue's native macOS window displaying three short sample speaking cues]"
+            "(docs/images/sidecue-preview.png)",
+            readme,
+        )
+        self.assertIn(
+            "[View the full-size UI screenshot](docs/images/sidecue-preview.png)",
+            readme,
+        )
         data = (ROOT / "docs/images/sidecue-preview.png").read_bytes()
         self.assertEqual(data[:8], b"\x89PNG\r\n\x1a\n")
         width, height = struct.unpack(">II", data[16:24])
